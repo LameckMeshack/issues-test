@@ -5,8 +5,16 @@ defmodule Issues.MixProject do
     [
       app: :issues,
       version: "0.1.0",
+      name: "Issues",
+      source: "git@github.com:LameckMeshack/issues-test.git"
       elixir: "~> 1.16",
+      
+      ex_doc: "0.36.1",
+      earmark: "1.4.48",
+      escript: escript_config(),
+
       start_permanent: Mix.env() == :prod,
+      elixirc_options: elixirc_options(Mix.env()),
       deps: deps()
     ]
   end
@@ -21,8 +29,16 @@ defmodule Issues.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:httpoison, "~> 2.0"},
+      {:poison, "~> 6.0"}
+    ]
+  end
+
+  defp elixirc_options(_), do: [warnings_as_errors: true]
+
+  defp escript_config do
+    [
+      main_module: Issues.CLI
     ]
   end
 end
