@@ -6,13 +6,9 @@ defmodule Issues.MixProject do
       app: :issues,
       version: "0.1.0",
       name: "Issues",
-      source: "git@github.com:LameckMeshack/issues-test.git"
+      source: "git@github.com:LameckMeshack/issues-test.git",
       elixir: "~> 1.16",
-      
-      ex_doc: "0.36.1",
-      earmark: "1.4.48",
       escript: escript_config(),
-
       start_permanent: Mix.env() == :prod,
       elixirc_options: elixirc_options(Mix.env()),
       deps: deps()
@@ -30,7 +26,9 @@ defmodule Issues.MixProject do
   defp deps do
     [
       {:httpoison, "~> 2.0"},
-      {:poison, "~> 6.0"}
+      {:poison, "~> 6.0"},
+      {:ex_doc, "~> 0.36.1"},
+      {:earmark, "~> 1.4.48"}
     ]
   end
 
